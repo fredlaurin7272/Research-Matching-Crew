@@ -13,10 +13,9 @@ except ImportError:
         "pysqlite3 not found. Using system sqlite3. "
         "This might cause issues if your system sqlite3 version is < 3.35.0"
     )
-    return
 except Exception as e:
     warnings.warn(f"Error setting up pysqlite3: {str(e)}")
-    return
+
 
 # Just set the OpenAI API key directly
 openai.api_key = st.secrets["OPENAI_API_KEY"]
