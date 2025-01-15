@@ -34,7 +34,7 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 st.title("Research Matching App")
 
-company_website = st.text_input("Company Website URL", "https://neclab.eu/")
+company_website = st.text_input("Company Website URL", "https://www.salesforceairesearch.com/")
 publications_dir = st.text_input("Publications Directory", "https://mila.quebec/en/directory")
 
 if st.button("Run Matching"):
