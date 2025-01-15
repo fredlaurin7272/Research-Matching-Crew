@@ -2,7 +2,7 @@
 import sys
 import warnings
 
-from research_matching.crew import ResearchMatchingCrew
+from ..crew import ResearchMatchingCrew
 
 
 # This main file is intended to be a way for you to run your
