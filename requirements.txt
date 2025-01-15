@@ -1,3 +1,5 @@
 streamlit
 openai
-.
+research_matching
+crewai
+# Add any other dependencies your app needs
