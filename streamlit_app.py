@@ -1,5 +1,5 @@
 import streamlit as st
-from src.research_matching.crew import ResearchMatchingCrew
+from research_matching.src.research_matching.crew import ResearchMatchingCrew  # Update to match your structure
 import openai
 
 # Just set the OpenAI API key directly
