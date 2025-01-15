@@ -1,10 +1,22 @@
 import streamlit as st
 from research_matching.src.research_matching.crew import ResearchMatchingCrew  # Update to match your structure
 import openai
-
-__import__('pysqlite3')
 import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+import warnings
+
+try:
+    import pysqlite3
+    # Replace sqlite3 with pysqlite3
+    sys.modules['sqlite3'] = pysqlite3
+except ImportError:
+    warnings.warn(
+        "pysqlite3 not found. Using system sqlite3. "
+        "This might cause issues if your system sqlite3 version is < 3.35.0"
+    )
+    return
+except Exception as e:
+    warnings.warn(f"Error setting up pysqlite3: {str(e)}")
+    return
 
 # Just set the OpenAI API key directly
 openai.api_key = st.secrets["OPENAI_API_KEY"]
