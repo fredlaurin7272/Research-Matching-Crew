@@ -1,1 +1,6 @@
-/agentops.log".streamlit/secrets.toml" 
+/agentops.log
+.streamlit/secrets.toml 
+.env
+__pycache__/
+*.log
+report.md
