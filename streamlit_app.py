@@ -1,5 +1,5 @@
 import streamlit as st
-from research_matching.crew import ResearchMatchingCrew
+from src.research_matching.crew import ResearchMatchingCrew
 import openai
 
 # Just set the OpenAI API key directly
