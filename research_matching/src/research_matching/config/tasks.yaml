@@ -1,0 +1,36 @@
+---
+collect_company_data_task:
+  description: Scrape the company website at {company_website_url} to extract relevant
+    research interests and focus areas. Spend the least amount of time possible, ensuring
+    comprehensive data collection without over-scraping.
+  expected_output: A detailed summary of the company's research interests and focus
+    areas extracted from the website {company_website_url}.
+  async_execution: false
+  agent: data_collection_expert
+gather_research_publications_task:
+  description: Read recent publication files from {publications_directory} to extract
+    keywords and topics of interest. Ensure that the extraction is thorough yet efficient.
+  expected_output: A list of keywords and topics derived from recent publications
+    located in {publications_directory}.
+  async_execution: false
+  agent: data_collection_expert
+match_interests_task:
+  description: Analyze the data collected from the company and recent publications
+    to find matches between the company's research interests and the topics of AI
+    researchers.
+  expected_output: A list of matched research interests between the company and AI
+    researchers, highlighting potential collaboration opportunities.
+  async_execution: false
+  agent: interest_matching_specialist
+  context:
+  - collect_company_data_task
+  - gather_research_publications_task
+generate_report_task:
+  description: Create a summary report of matched research interests, detailing collaboration
+    opportunities and insights derived from the analysis.
+  expected_output: A comprehensive report outlining matched research interests and
+    collaboration opportunities, ready for distribution to stakeholders.
+  async_execution: false
+  agent: reporting_specialist
+  context:
+  - match_interests_task
