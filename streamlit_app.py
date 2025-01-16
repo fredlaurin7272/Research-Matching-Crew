@@ -5,7 +5,6 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import streamlit as st
 from research_matching.crew import ResearchMatchingCrew
 import openai
-import warnings
 
 # Just set the OpenAI API key directly
 openai.api_key = st.secrets["OPENAI_API_KEY"]
@@ -22,4 +21,4 @@ if st.button("Run Matching"):
     }
     crew = ResearchMatchingCrew()
     results = crew.crew().kickoff(inputs=inputs)
-    st.write(results)
+    st.write(results.raw)
