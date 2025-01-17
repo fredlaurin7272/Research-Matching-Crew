@@ -1,4 +1,19 @@
-streamlit
-crewai
-crewai-tools
-openai
+# Core dependencies
+streamlit>=1.31.0
+crewai>=0.16.0
+crewai-tools>=0.0.6
+openai>=1.12.0
+
+# AWS deployment dependencies
+gunicorn>=21.2.0
+
+# Common CrewAI dependencies
+langchain>=0.1.0
+duckduckgo-search>=4.1.1
+beautifulsoup4>=4.12.2
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Optional but recommended for better performance
+numpy>=1.24.0
+pandas>=2.0.0

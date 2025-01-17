@@ -1,0 +1,43 @@
+# Other files
+target/
+build/
+dist/
+tmp/
+
+# Ignore virtual environments
+.venv/
+venv/
+
+# Ignore database files
+db/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore environment and secrets files
+.env
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore version control files and directories
+.git/
+.gitignore
+
+# Ignore package manager lock files (if not necessary)
+uv.lock
+
+# Ignore deployment-specific files
+.ebextensions/
+
+# Ignore Streamlit configuration (if not needed in production)
+.streamlit/
+
+# Ignore test directories and files
+tests/
+
+# Exclude knowledge directory (if large or unnecessary for the build)
+knowledge/

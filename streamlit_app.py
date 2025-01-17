@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import streamlit as st
-from research_matching.crew import ResearchMatchingCrew
+from research_matching.src.research_matching.crew import ResearchMatchingCrew
 import openai
 
 # Just set the OpenAI API key directly
