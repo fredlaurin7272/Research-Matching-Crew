@@ -1,9 +1,14 @@
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from pathlib import Path
+
+# Add the src directory to Python path
+src_path = Path(__file__).parent / "src"
+sys.path.append(str(src_path))
 
 import streamlit as st
-from research_matching.src.research_matching.crew import ResearchMatchingCrew
+from research_matching.crew import ResearchMatchingCrew
+
 import openai
 
 # Just set the OpenAI API key directly
