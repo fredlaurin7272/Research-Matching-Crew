@@ -1,4 +1,4 @@
 streamlit
 openai
 crewai
-research-matching
+crewai-tools

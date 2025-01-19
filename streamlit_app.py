@@ -12,7 +12,12 @@ from research_matching.crew import ResearchMatchingCrew
 import openai
 
 # Just set the OpenAI API key directly
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("OPENAI_API_KEY not found in secrets or environment variables")
+
+openai.api_key = api_key
+
 
 st.title("Research Matching App")
 
