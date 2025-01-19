@@ -2,12 +2,12 @@ import sys
 import os
 from pathlib import Path
 
-# Add the src directory to Python path
-src_path = Path(__file__).parent / "src"
-sys.path.append(str(src_path))
+# # Add the src directory to Python path (For Docker Local Deployment)
+# src_path = Path(__file__).parent / "src"
+# sys.path.append(str(src_path))
 
 import streamlit as st
-from research_matching.crew import ResearchMatchingCrew
+from src.research_matching.crew import ResearchMatchingCrew
 
 import openai
 
