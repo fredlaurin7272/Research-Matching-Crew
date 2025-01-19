@@ -7,7 +7,7 @@ from pathlib import Path
 # sys.path.append(str(src_path))
 
 import streamlit as st
-from src.research_matching.crew import ResearchMatchingCrew
+from research_matching.crew import ResearchMatchingCrew
 
 import openai
 
