@@ -12,6 +12,9 @@ RUN apt-get update && \
 # Install Python packages
 COPY requirements.txt .
 RUN pip install --no-cache-dir --user -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir --user 'crewai[tools]' && \
+    pip install --no-cache-dir --user -r requirements.txt
 
 # Final stage
 FROM python:3.11-slim
@@ -42,5 +45,3 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 
 # Run Streamlit
 CMD ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
-
-

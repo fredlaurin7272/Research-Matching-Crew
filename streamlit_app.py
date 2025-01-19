@@ -1,36 +1,23 @@
-__import__('pysqlite3')
 import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+import os
+from pathlib import Path
 
-
-import chromadb
-client = chromadb.Client()
-collection = client.get_collection(name="chroma_docs")
-results = collection.get(ids=["page"])["documents"]
-print(results) # Not found []
-
+# Add the src directory to Python path
+src_path = Path(__file__).parent / "src"
+sys.path.append(str(src_path))
 
 import streamlit as st
-from research_matching.src.research_matching.crew import ResearchMatchingCrew  # Update to match your structure
+from research_matching.crew import ResearchMatchingCrew
+
 import openai
-import sys
-import warnings
-
-# try:
-#     import pysqlite3
-#     # Replace sqlite3 with pysqlite3
-#     sys.modules['sqlite3'] = pysqlite3
-# except ImportError:
-#     warnings.warn(
-#         "pysqlite3 not found. Using system sqlite3. "
-#         "This might cause issues if your system sqlite3 version is < 3.35.0"
-#     )
-# except Exception as e:
-#     warnings.warn(f"Error setting up pysqlite3: {str(e)}")
-
 
 # Just set the OpenAI API key directly
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("OPENAI_API_KEY not found in secrets or environment variables")
+
+openai.api_key = api_key
+
 
 st.title("Research Matching App")
 
@@ -44,4 +31,4 @@ if st.button("Run Matching"):
     }
     crew = ResearchMatchingCrew()
     results = crew.crew().kickoff(inputs=inputs)
-    st.write(results)
+    st.write(results.raw)
